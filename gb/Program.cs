@@ -21,7 +21,7 @@ class Program
     }
 }
 
-class SomeClass
+public class SomeClass
 {
     public SomeClass()
     {

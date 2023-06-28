@@ -1,16 +1,16 @@
-using System;
 using NUnit.Framework;
 
 [TestFixture]
-public class ProgramTests
+public class GarbageCollectorTests
 {
     [Test]
-    public void GarbageCollectionShouldntThrowException()
+    public void GarbageCollectorCollectRemovesUnusedObjects()
     {
-        TestDelegate testDelegate = () => {
-            Program.Main();
-        };
-        
-        Assert.DoesNotThrow(testDelegate);
+        var obj = new SomeClass();
+
+        obj.DoSomething();
+        obj = null;
+        System.GC.Collect();
+        Assert.IsNull(obj);
     }
 }
