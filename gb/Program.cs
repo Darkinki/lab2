@@ -1,19 +1,34 @@
 ﻿using System;
 
-public class Program
+class Program
 {
-    static public void Main()
+    static void Main()
     {
-        MyClass obj = new MyClass();
+        GarbageCollectorDemo();
+    }
+
+    static void GarbageCollectorDemo()
+    {
+
+        SomeClass obj = new SomeClass();
+
+        obj.DoSomething();
+
         obj = null;
 
         GC.Collect();
-
-        Console.WriteLine("Garbage collection completed.");
+        Console.WriteLine("Закінчили");
     }
 }
 
-public class MyClass
+class SomeClass
 {
-    // Код класу
+    public SomeClass()
+    {
+        Console.WriteLine("Створили");
+    }
+    public void DoSomething()
+    {
+        Console.WriteLine("Використали");
+    }
 }
