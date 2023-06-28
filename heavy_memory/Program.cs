@@ -1,10 +1,23 @@
-﻿    using System;
+﻿using System;
+using System.Collections.Generic;
 
-    public class Program
+class Program
+{
+    static void Main()
     {
-        public static void Main()
+        LinkedList<object> linkedList = new LinkedList<object>();
+
+        try
         {
-            int[] numbers = new int[1000000000000000000]; // Створюємо наче великий масив чисел
-           
+            while (true)
+            {
+                object obj = new object();
+                linkedList.AddLast(obj);
+            }
+        }
+        catch (OutOfMemoryException)
+        {
+            Console.WriteLine("OutOfMemoryException occurred. LinkedList is full.");
         }
     }
+}
